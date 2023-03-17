@@ -1,2 +1,5 @@
-steps
-- name: 'gcr.io/'
+steps:
+  - name: 'python:3.12-rc-slim'
+    args: ["python", "hlo-wld.py"]
+    dir: /usr/src
+    timeout: 300s
