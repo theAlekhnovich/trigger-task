@@ -1,7 +1,7 @@
 steps:
   - name: "python:3.12-rc-slim"
     args: ["python",
-      "gcr.io/test-hellotwin/github.com/theAlekhnovich/trigger-task/hlo-wld.py:$COMMIT_SHA", 
+      "./hlo-wld.py:$COMMIT_SHA", 
       ]
-    dir: /app
+#    dir: /app
     timeout: 300s
