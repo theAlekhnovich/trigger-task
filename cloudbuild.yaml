@@ -1,9 +1,9 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-build/docker'
     args: ['build', -t, 'gcr.io/test-hellotwin/wb-srvr', '.']
   - name: 'gcr.io/test-hellotwin/wb-srvr'
     args: ['push', 'gcr.io/test-hellotwin/wb-srvr']
-  - name: 'gcr.io/cloud-builders/gcloud'
+  - name: 'gcr.io/cloud-build/gcloud'
     args: ['run', 'deploy', 'wb-srvr', '--image', 'gcr.io/test-hellotwin/wb-srvr', '--platform', 'managed', '--region', 'global']
     
     timeout: 300s
