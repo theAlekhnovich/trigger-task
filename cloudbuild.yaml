@@ -1,9 +1,11 @@
 steps:
-  - name: 'docker'
-    args: ['build', -t, 'gcr.io/test-hellotwin/trigger-task', '.']
-  - name: 'docker'
-    args: ['push', 'gcr.io/test-hellotwin/trigger-task']
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['run', 'deploy', 'trigger-task', '--image=gcr.io/test-hellotwin/trigger-task', '--platform=managed', '--region=global', 'allow-unauthenticated']
+  - name: 'python:3.12-rc-slim'
+    entrypoint: "python"
+    args: ["hlo-wld.py"]
+#    args: ["hlo-wld.py", -t, 'gcr.io/test-hellotwin/trigger-task', '.']
+#  - name: 'docker'
+#    args: ['push', 'gcr.io/test-hellotwin/trigger-task']
+#  - name: 'gcr.io/cloud-builders/gcloud'
+#    args: ['run', 'deploy', 'trigger-task', '--image=gcr.io/test-hellotwin/trigger-task', '--platform=managed', '--region=global', 'allow-unauthenticated']
     
-    timeout: 300s
+#    timeout: 300s
