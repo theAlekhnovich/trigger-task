@@ -1,7 +1,7 @@
 steps:
-  - name: gcr.io/cloud-builders/docker
+  - name: gcr.io/cloud-builders/g-cloud
     args: ["build", "-t", "hlo-wld", "."]
   - name: gcr.io/cloud-builders/docker
-    args: ["push", "hlo-wld"]
+    args: ["run", "hlo-wld"]
     
     timeout: 300s
