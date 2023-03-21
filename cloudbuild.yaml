@@ -1,7 +1,9 @@
 steps:
-  - name: "python:3.12-rc-slim"
-    args: ["python",
-      "./hlo-wld.py:$COMMIT_SHA", 
-      ]
-#    dir: /app
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', -t, 'gcr.io/test-hellotwin/wb-srvr', '.']
+  - name: 'gcr.io/test-hellotwin/wb-srvr'
+    args: ['push', 'gcr.io/test-hellotwin/wb-srvr']
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['run', 'deploy', 'wb-srvr', '--image', 'gcr.io/test-hellotwin/wb-srvr', '--platform', 'managed', '--region', 'global']
+    
     timeout: 300s
