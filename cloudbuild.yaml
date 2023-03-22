@@ -10,5 +10,4 @@ steps:
       - web-service-python
       - --project=test-hellowtwin
       - --image=eu.gcr.io/test-hellotwin/web-service:${SHORT_SHA}
-      - --platform managed
       - --allow-unauthenticated
