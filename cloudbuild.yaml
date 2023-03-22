@@ -1,5 +1,5 @@
 steps:
   - name: gcr.io/cloud-builders/docker
-    args: ["build", "-t", "hlo-wld", "."]
+    args: ["build", "-t", "eu.gcr.io/test-hellotwin/web-service:${SHORT_SHA}", "."]
   - name: gcr.io/cloud-builders/docker
     args: ["push", "eu.gcr.io/test-hellotwin/web-service:${SHORT_SHA}"]
