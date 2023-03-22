@@ -1,5 +1,14 @@
 steps:
   - name: gcr.io/cloud-builders/docker
-    args: ["build", "-t", "eu.gcr.io/test-hellotwin/web-service:${SHORT_SHA}", "."]
+    args: ["build", "-t", "eu.gcr.io/test-hellotwin/web-service-image:${SHORT_SHA}", "."]
   - name: gcr.io/cloud-builders/docker
-    args: ["push", "eu.gcr.io/test-hellotwin/web-service:${SHORT_SHA}"]
+    args: ["push", "eu.gcr.io/test-hellotwin/web-service-image:${SHORT_SHA}"]
+  - name: gcr.io/cloud-builders/gcloud
+    args:
+      - run
+      - deploy
+      - web-service-python
+      - --project=test-hellowtwin
+      - --image=eu.gcr.io/test-hellotwin/web-service:${SHORT_SHA}
+      - --platform managed
+      - --allow-unauthenticated
