@@ -11,4 +11,4 @@ steps:
       - --project=test-hellotwin
       - --image=eu.gcr.io/test-hellotwin/web-service:${SHORT_SHA}
       - --region=europe-central2
-      - --plaform=managed
+      - --platform=managed
