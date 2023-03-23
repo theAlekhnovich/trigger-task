@@ -7,7 +7,8 @@ steps:
     args:
       - run
       - deploy
-      - web-service-js
-      - --project=test-hellowtwin
+      - web-on-js
+      - --project=test-hellotwin
       - --image=eu.gcr.io/test-hellotwin/web-service:${SHORT_SHA}
       - --region=europe-central2
+      - --plaform=managed
