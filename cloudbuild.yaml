@@ -11,4 +11,3 @@ steps:
       - --project=test-hellowtwin
       - --image=eu.gcr.io/test-hellotwin/web-service:${SHORT_SHA}
       - --region=europe-central2
-      - --key=AIzaSyATqTQ1M4CRQr3TbPrXsYvqo2qmqtkfLZk
