@@ -9,6 +9,6 @@ steps:
       - deploy
       - web-on-js
       - --project=test-hellotwin
-      - --image=eu.gcr.io/test-hellotwin/web-service:${SHORT_SHA}
+      - --image=eu.gcr.io/test-hellotwin/web-service-image:${SHORT_SHA}
       - --region=europe-central2
       - --platform=managed
