@@ -16,3 +16,12 @@ spec:
                 name: clean-cut-service
                 port: 
                   number: 8080
+    - http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: clean-cut-service
+                port: 
+                  number: 443
