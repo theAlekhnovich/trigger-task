@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: another-test-web-server
+  name: web-server
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: another-test-web-server
+      run: web-server
   template:
     metadata:
       labels:
-        run: another-test-web-server
+        run: web-server
     spec:
-      serviceAccountName: test-ksa
+      serviceAccountName: clean-cut-ksa
       nodeSelector:
         iam.gke.io/gke-metadata-server-enabled: "true"
       containers:
       - image: eu.gcr.io/test-hellotwin/web-image-043:634a84d
         imagePullPolicy: IfNotPresent
-        name: another-test-web-server
+        name: web-server
         ports:
         - containerPort: 8080
           protocol: TCP
