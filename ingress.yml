@@ -6,22 +6,16 @@ metadata:
     kubernetes.io/ingress.global-static-ip-name: "clean-cut-static-ip"
     kubernetes.io/ingress.class: "gce"
 spec:
+  defaultBackend:
+    service:
+      name: clean-cut-service
   rules:
     - http:
         paths:
-          - path: /*
+          - path: /
             pathType: ImplementationSpecific
             backend:
               service:
                 name: clean-cut-service
                 port: 
                   number: 8080
-    - http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: clean-cut-service
-                port: 
-                  number: 443
