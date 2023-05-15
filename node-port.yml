@@ -4,7 +4,7 @@ metadata:
   name: clean-cut-service
   namespace: default
   annotations:
-    beta.cloud.google.com/backend-config: '{"default": "config-default"}'
+    beta.cloud.google.com/backend-config: '{"default": "backend-config"}'
 spec:
   type: NodePort
   selector:
