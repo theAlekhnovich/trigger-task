@@ -3,14 +3,21 @@ kind: Ingress
 metadata:
   name: clean-cut-ingress
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: "clean-cut-static-ip"
+    kubernetes.io/ingress.global-static-ip-name: clean-cut-static-ip
+    networking.gke.io/managed-certificates: managed-cert
     kubernetes.io/ingress.class: "gce"
+    networking.gke.io/v1beta2.FrontendConfig: "frontend-config"
+    kubernetes.io/ingress.allow-http: "true"
+
 spec:
   defaultBackend:
     service:
       name: clean-cut-service
+      port:
+        number: 8080
   rules:
-    - http:
+    - host: olekhnovich.of.by
+      http:
         paths:
           - path: /
             pathType: ImplementationSpecific
