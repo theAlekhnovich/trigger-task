@@ -1,25 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-server
+  name: iap-app-test
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: web-server
+      app: iap-app-test
   template:
     metadata:
       labels:
-        run: web-server
+        app: iap-app-test
     spec:
-      serviceAccountName: clean-cut-ksa
-      nodeSelector:
-        iam.gke.io/gke-metadata-server-enabled: "true"
+#     serviceAccountName: clean-cut-ksa
+#     nodeSelector:
+#       iam.gke.io/gke-metadata-server-enabled: "true"
       containers:
-      - image: eu.gcr.io/test-hellotwin/web-image-043:634a84d
+      - name: iap-app-test
+        image: eu.gcr.io/test-hellotwin/web-image-043:634a84d
         imagePullPolicy: IfNotPresent
-        name: web-server
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
         ports:
         - containerPort: 8080
           protocol: TCP

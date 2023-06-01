@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: clean-cut-service
+  name: node-port-test
   namespace: default
   annotations:
     beta.cloud.google.com/backend-config: '{"default": "backend-config"}'
 spec:
   type: NodePort
   selector:
-    run: web-server
+    run: iap-app-test
   ports:
   - port: 8080
     protocol: TCP

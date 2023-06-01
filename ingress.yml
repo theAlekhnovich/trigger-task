@@ -1,10 +1,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: clean-cut-ingress
+  name: ingress-test
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: clean-cut-static-ip
-    networking.gke.io/managed-certificates: managed-cert
+    kubernetes.io/ingress.global-static-ip-name: main-static-ip
+    networking.gke.io/managed-certificates: certificate-test
     kubernetes.io/ingress.class: "gce"
     networking.gke.io/v1beta2.FrontendConfig: "frontend-config"
     kubernetes.io/ingress.allow-http: "true"
@@ -12,7 +12,7 @@ metadata:
 spec:
   defaultBackend:
     service:
-      name: clean-cut-service
+      name: cluster-ip-test
       port:
         number: 8080
   rules:
@@ -23,6 +23,6 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: clean-cut-service
+                name: cluster-ip-test
                 port: 
                   number: 8080
