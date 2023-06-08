@@ -1,14 +1,14 @@
 steps:
   - name: gcr.io/cloud-builders/docker
-    args: ["build", "-t", "eu.gcr.io/test-hellotwin/web-image-043:${SHORT_SHA}", "."]
+    args: ["build", "-t", "eu.gcr.io/test-hellotwin/py-web-image-043:${SHORT_SHA}", "."]
   - name: gcr.io/cloud-builders/docker
-    args: ["push", "eu.gcr.io/test-hellotwin/web-image-043:${SHORT_SHA}"]
+    args: ["push", "eu.gcr.io/test-hellotwin/py-web-image-043:${SHORT_SHA}"]
   - name: gcr.io/cloud-builders/gcloud
     args:
       - run
       - deploy
-      - web-on-js
+      - web-on-py
       - --project=test-hellotwin
-      - --image=eu.gcr.io/test-hellotwin/web-image-043:${SHORT_SHA}
+      - --image=eu.gcr.io/test-hellotwin/py-web-image-043:${SHORT_SHA}
       - --region=europe-central2
       - --platform=managed

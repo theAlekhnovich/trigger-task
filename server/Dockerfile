@@ -1,4 +1,5 @@
-FROM node:19-slim
+FROM 3.12.0b2-bullseye
 WORKDIR /app
 COPY . .
-CMD node server.js
+CMD apt update && pip install Flask
+CMD python3 server.py
