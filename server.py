@@ -9,6 +9,6 @@ def index():
     return "<h1>Hello there!</h1>"
 
 if __name__ == "__main__":
-    host = socket.gethostname()
-    port = int(os.environ.get("PORT", 8080))
-    app.run(host=host, port=port)
+#    host = socket.gethostname()
+#    port = int(os.environ.get("PORT", 8080))
+    app.run(host='localhost', port=8080)
