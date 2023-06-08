@@ -1,5 +1,5 @@
-FROM 3.12.0b2-bullseye
+FROM python:3.12.0b2-bullseye
 WORKDIR /app
 COPY . .
-CMD apt update && pip install Flask
-CMD python3 server.py
+RUN pip install --no-cache-dir -r requirements.txt
+CMD ["python", "./server.py"]
