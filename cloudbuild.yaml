@@ -1,6 +1,4 @@
 steps:
-  - name: 'Check directory'
-    workdir: './server'
   - name: gcr.io/cloud-builders/docker
     args: ["build", "-t", "eu.gcr.io/test-hellotwin/py-web-image-043:${SHORT_SHA}", "."]
   - name: gcr.io/cloud-builders/docker
