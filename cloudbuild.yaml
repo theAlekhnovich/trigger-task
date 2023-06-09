@@ -3,12 +3,12 @@ steps:
     args: ["build", "-t", "eu.gcr.io/test-hellotwin/py-web-sec-152:${SHORT_SHA}", "."]
   - name: gcr.io/cloud-builders/docker
     args: ["push", "eu.gcr.io/test-hellotwin/py-web-sec-152:${SHORT_SHA}"]
-  - name: gcr.io/cloud-builders/gcloud
-    args:
-      - run
-      - deploy
-      - web-on-py
-      - --project=test-hellotwin
-      - --image=eu.gcr.io/test-hellotwin/py-web-sec-152:${SHORT_SHA}
-      - --region=europe-central2
-      - --platform=managed
+#  - name: gcr.io/cloud-builders/gcloud
+#    args:
+#      - run
+#      - deploy
+#      - web-on-py
+#      - --project=test-hellotwin
+#      - --image=eu.gcr.io/test-hellotwin/py-web-sec-152:${SHORT_SHA}
+#      - --region=europe-central2
+#      - --platform=managed
