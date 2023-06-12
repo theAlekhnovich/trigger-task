@@ -10,7 +10,7 @@ def index():
     value = None
     headers = request.headers
     if key in headers:
-        for line in headers[value]:
+        for line in headers[key]:
             if line != '':
                 value = line
                 break
