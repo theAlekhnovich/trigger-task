@@ -15,7 +15,7 @@ def index():
                 value = line
                 break
         if value is not None:
-            return f"<h1>Hello there, {key}={value}</h1>"
+            return f"<h1>Hello there, {value}</h1>"
     return "<h1>How the hell you made it here?!</h1>"
 
 if __name__ == "__main__":
