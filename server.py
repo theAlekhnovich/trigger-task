@@ -24,9 +24,8 @@ def index():
     list = [f"{k}: {v}" for k, v in headers]
     if key in list:
         for line in key:
-            if line != '':
-                value = line
-                break
+            value = line
+            break
         if value is not None:
             return f"<h1>Hello there, {value}</h1>"
     return "<h1>How the hell you made it here?!</h1>"
