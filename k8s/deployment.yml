@@ -18,7 +18,7 @@ spec:
 #       iam.gke.io/gke-metadata-server-enabled: "true"
       containers:
       - name: iap-app-test
-        image: eu.gcr.io/test-hellotwin/py-web-sec-152:2bdb570
+        image: eu.gcr.io/test-hellotwin/py-web-sec-152:8f83bb5
         imagePullPolicy: IfNotPresent
         resources:
           limits:

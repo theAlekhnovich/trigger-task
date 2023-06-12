@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    key = 'X-Goog-Authenticated-User-Email:'
+    key = 'X-Goog-Authenticated-User-Email'
     value = None
     headers = request.headers
     if key in headers:
