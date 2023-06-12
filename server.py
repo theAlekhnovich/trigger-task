@@ -26,7 +26,7 @@ def index():
         for line in key:
             value = line
             break
-    return "<h1>Hello there, {value}</h1>"
+    return f"<h1>Hello there, {value}</h1>"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
