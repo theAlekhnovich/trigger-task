@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    key = 'X-Goog-Authenticated-User-Email'
+    key = 'X-Goog-Authenticated-User-Email: accounts.google.com'
     value = None
     headers = request.headers
     if key in headers:
@@ -15,7 +15,7 @@ def index():
                 value = line
                 break
         if value is not None:
-            return f"<h1>Hello there, {value}</h1>"
+            return "<h1>Hello there, {value}</h1>"
     return "<h1>How the hell you made it here?!</h1>"
 
 if __name__ == "__main__":
