@@ -24,9 +24,12 @@ def index():
     list = [f"{k}: {v}" for k, v in headers]
     if key in list:
         for line in key:
-            value = line
-            break
-    return f"<h1>Hello there, {value}</h1>"
+            if line != '':
+                value = line
+                break
+        if value is not None:
+            return f"<h1>Hello there, {value}</h1>"
+    return "<h1>How the hell you made it here?!</h1>"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
