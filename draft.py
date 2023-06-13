@@ -34,6 +34,10 @@ def index():
 #    return body
 #    return "<h1>Hello there!</h1>"
 
+#    headers = request.headers.get('Authorization')
+#    list = [f"{k}: {v}" for k, v in headers]
+#    return f"{list}</br>"
+
 if __name__ == "__main__":
 #    host = socket.gethostname()
 #    port = int(os.environ.get("PORT", 8080))
