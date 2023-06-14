@@ -8,9 +8,12 @@ app = Flask(__name__)
 def index():
 
     headers = dict(request.headers)
-    email = str(headers.get("X-Goog-Authenticated-User-Email"))
+    rawemail = str(headers.get("X-Goog-Authenticated-User-Email"))
+    email = rawemail.replace('accounts.google.com:', '')
     token = str(headers.get("X-Goog-Iap-Jwt-Assertion"))
-    return f"Email: {email}\n JWT token: {token}</br>"
+    body='<html><body>' + '\n'.join(['<pre>'] + [email] + [token] + ['</pre>']) + '</body></html>'
+
+    return body #f"Email: {email}\n JWT token: {token}</br>"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
