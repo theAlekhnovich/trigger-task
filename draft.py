@@ -38,6 +38,16 @@ def index():
 #    list = [f"{k}: {v}" for k, v in headers]
 #    return f"{list}</br>"
 
+#   list = [(f"{k}: {v}", k) for k, v in headers]
+#    if 'X-Goog-Authenticated-User-Email' in list:
+#        for items in list:
+#            email = request.cookies.get('X-Goog-Authenticated-User-Email')
+#            token = request.cookies.get('X-Goog-Iap-Jwt-Assertion')
+#            body = f'<html><body>{email}{token}</body></html>'
+#            return body
+#    else:
+#        return ''
+
 if __name__ == "__main__":
 #    host = socket.gethostname()
 #    port = int(os.environ.get("PORT", 8080))
