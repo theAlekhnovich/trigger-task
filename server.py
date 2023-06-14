@@ -11,9 +11,9 @@ def index():
     rawemail = str(headers.get("X-Goog-Authenticated-User-Email"))
     email = rawemail.replace('accounts.google.com:', '')
     token = str(headers.get("X-Goog-Iap-Jwt-Assertion"))
-    body='<html><body>' + '\n'.join(['<pre>'] + [email] + [token] + ['</pre>']) + '</body></html>'
+    body='<html><body>' + '\n'.join(['<pre>'] + (['Email: '] + [email]) + (['Token: '] + [token]) + ['</pre>']) + '</body></html>'
 
-    return body #f"Email: {email}\n JWT token: {token}</br>"
+    return body
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
