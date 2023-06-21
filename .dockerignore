@@ -2,3 +2,5 @@ Dockerfile
 .git
 *.yaml
 README.md
+draft.py
+*.js
